@@ -1,0 +1,283 @@
+<?php
+if ( ! defined( 'ABSPATH' ) ) exit;
+add_settings_field(
+  'qaffw-check-products-taxo-widget',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-presets',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-notice-position',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-product-shipted',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-shipimg-check',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+// Taxos label check
+add_settings_field(
+  'qaffw-checkout-page-check',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+// controls
+// *** estimass
+add_settings_field(
+  'qaffw-estimass-color',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-fontsize',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-fontweight',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-fontfamilly',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+// headline bg
+add_settings_field(
+  'qaffw-estimass-bgcolor5',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-box-shadow5',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-border-radius5',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+// expand bg
+add_settings_field(
+  'qaffw-estimass-bgcolorEX',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-box-shadowEX',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-border-radiusEX',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+
+add_settings_field(
+  'qaffw-estimdate-color',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-color',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-fontsize',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-fontweight',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-reason-fontfamilly',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+// *** dimensions
+add_settings_field(
+  'qaffw-estimdate-fontsize',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimdate-fontweight',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimdate-fontfamilly',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+
+// Register Settings all
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-check-products-taxo-widget' 
+);
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-estimass-presets' 
+);
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-notice-position' 
+);
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-product-shipted' 
+);
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-shipimg-check' 
+);
+// Taxos label check
+register_setting(
+  'qaffw-plugin-settings', 
+  'qaffw-checkout-page-check' 
+);
+// controls
+// *** estimass
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-color'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-fontsize'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-fontweight'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-fontfamilly'
+);
+// headline bg
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-bgcolor5'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-box-shadow5'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-border-radius5'
+);
+// expand bg
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-bgcolorEX'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-box-shadowEX'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-border-radiusEX'
+);
+// *** estimdate
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimdate-color'
+);
+// *** reason
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-color'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-fontsize'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-fontweight'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-reason-fontfamilly'
+);
+// *** estimdate
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimdate-fontsize'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimdate-fontweight'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimdate-fontfamilly'
+);

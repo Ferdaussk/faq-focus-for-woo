@@ -1,0 +1,46 @@
+.form-repeater {
+  margin-bottom: 20px;
+}
+
+.qaffw-form-group {
+  margin-bottom: 40px;
+}
+
+.qaffw-adminlbl {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.qaffw-adminbtn {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button.qaffw-adminbtn.qaffw-btn-add {
+  background: #01933b;
+  color: black;
+}
+button.qaffw-btn-remv{
+  background: #ff9d0a;
+  color: black;
+}
+.qaffw-form-group input, .qaffw-form-group textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.qaffw-adminbtn {
+  margin-right: 10px;
+}
+.qaffw-form-group {
+  display: grid;
+  background: #e9e9e9;
+  padding: 5px 20px;
+  border-radius: 4px;
+  border: 1px solid;
+}
