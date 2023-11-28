@@ -3,11 +3,16 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 // Taxos label check
 $qaffw_checkout_page_check = get_option( 'qaffw-checkout-page-check', 'before_add_to_cart_button' );
 // Label controls
+// *** top title
+$qaffw_estimass_toptitle_color_value = get_option( 'qaffw-estimass-toptitle-color');
+$qaffw_estimass_toptitle_fontsize_value = get_option( 'qaffw-estimass-toptitle-fontsize');
+$qaffw_estimass_toptitle_fontweight_value = get_option( 'qaffw-estimass-toptitle-fontweight');
+$qaffw_estimass_toptitle_fontfamilly_value = get_option( 'qaffw-estimass-toptitle-fontfamilly');
 // *** estimass
-$qaffw_estimass_color_value = get_option( 'qaffw-estimass-color', 'black' );
-$qaffw_estimass_fontsize_value = get_option( 'qaffw-estimass-fontsize', '20px');
+$qaffw_estimass_color_value = get_option( 'qaffw-estimass-color');
+$qaffw_estimass_fontsize_value = get_option( 'qaffw-estimass-fontsize');
 $qaffw_estimass_fontweight_value = get_option( 'qaffw-estimass-fontweight');
-$qaffw_estimass_fontfamilly_value = get_option( 'qaffw-estimass-fontfamilly', 'roboto' );
+$qaffw_estimass_fontfamilly_value = get_option( 'qaffw-estimass-fontfamilly');
 // headline bg
 $qaffw_estimass_bgcolor5_value = get_option( 'qaffw-estimass-bgcolor5' );
 $qaffw_estimass_box_shadow5_value = get_option( 'qaffw-reason-box-shadow5' );
@@ -18,6 +23,7 @@ $qaffw_estimass_box_shadowEX_value = get_option( 'qaffw-reason-box-shadowEX' );
 $qaffw_estimass_radiusEX_value = get_option( 'qaffw-reason-border-radiusEX' );
 // *** estimdate
 $qaffw_estimass_presets_value = get_option( 'qaffw-estimass-presets', 1 );
+$wpesd_top_title_check_check = get_option( 'wpesd-top-title-check', 'FAQ Focus for Woo' );
 $wpesd_expand_title_check_check = get_option( 'wpesd-expand-title-check', 'on' );
 // *** reason
 $qaffw_reason_color_value = get_option( 'qaffw-reason-color' );
@@ -25,8 +31,8 @@ $qaffw_reason_fontsize_value = get_option( 'qaffw-reason-fontsize');
 $qaffw_reason_fontweight_value = get_option( 'qaffw-reason-fontweight');
 $qaffw_reason_fontfamilly_value = get_option( 'qaffw-reason-fontfamilly' );
 // *** estimdate
-$qaffw_estimdate_color_value = get_option( 'qaffw-estimdate-color', 'red' );
-$qaffw_estimdate_fontsize_value = get_option( 'qaffw-estimdate-fontsize', '20px');
+$qaffw_estimdate_color_value = get_option( 'qaffw-estimdate-color');
+$qaffw_estimdate_fontsize_value = get_option( 'qaffw-estimdate-fontsize');
 $qaffw_estimdate_fontweight_value = get_option( 'qaffw-estimdate-fontweight');
 $qaffw_estimdate_fontfamilly_value = get_option( 'qaffw-estimdate-fontfamilly');
 // Get all font here start
@@ -114,6 +120,10 @@ $ss_all_presets = [
           ?>
         </div>
         <div class="list-container wpesd_cmmn_chacthak">
+          <label class="qape_title"><?php _e('Top title', 'wproduct-estimated-shipping-date'); ?></label>
+          <?php echo '<input type="text" name="wpesd-top-title-check" id="wpesd-top-title-check" value="'.$wpesd_top_title_check_check.'" title="Text"  placeholder="FAQ Focus for Woo">';?>
+        </div>
+        <div class="list-container wpesd_cmmn_chacthak">
           <input type="checkbox" name="wpesd-expand-title-check" value="on" <?php echo checked( $wpesd_expand_title_check_check, 'on', false ); ?>>
           <label class="checker-switch"><?php _e('Show expand title', 'wproduct-estimated-shipping-date'); ?></label>
         </div>
@@ -148,7 +158,7 @@ $ss_all_presets = [
       </div>
       <div class="clmn-wrap secound-clm">
         <div class="control_row">
-        <label for="" class="qaffw_style_title"><?php echo esc_html__('Headline', 'faq-focus-for-woo');?></label>
+          <label for="" class="qaffw_style_title"><?php echo esc_html__('Headline', 'faq-focus-for-woo');?></label>
           <div class="color-control qaffw-style-style">
             <label for=""><?php echo esc_html__('Color', 'faq-focus-for-woo');?></label>
             <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="qaffw-estimass-color" id="qaffw-estimass-text" value="'.$qaffw_estimass_color_value.'" title="Text">';?>
@@ -171,6 +181,33 @@ $ss_all_presets = [
             echo '</select>';
             ?>
           </div>
+
+          <div class="qaffw_top_title">
+          <label for="" class="qaffw_style_title"><?php echo esc_html__('Top Title', 'faq-focus-for-woo');?></label>
+          <div class="color-control qaffw-style-style">
+            <label for=""><?php echo esc_html__('Color', 'faq-focus-for-woo');?></label>
+            <?php echo '<input type="text" class="color-field" data-wheelcolorpicker data-wcp-format="rgba" name="qaffw-estimass-toptitle-color" id="qaffw-estimass-text" value="'.$qaffw_estimass_toptitle_color_value.'" title="Text">';?>
+          </div>
+          <div class="text-control qaffw-style-style">
+            <label for=""><?php echo esc_html__('Font size', 'faq-focus-for-woo');?></label>
+            <?php echo '<input type="text" name="qaffw-estimass-fontsize" id="qaffw-estimass-toptitle-fontsize" value="'.$qaffw_estimass_toptitle_fontsize_value.'" title="10px"  placeholder="px, %, rem">';?>
+          </div>
+          <div class="number-control qaffw-style-style">
+            <label for=""><?php echo esc_html__('Font weight', 'faq-focus-for-woo');?></label>
+            <?php echo '<input type="text" name="qaffw-estimass-toptitle-fontweight" id="qaffw-estimass-fontweight" value="'.$qaffw_estimass_toptitle_fontweight_value.'" title="Number"  placeholder="400">';?>
+          </div>
+          <div class="select-control qaffw-style-style">
+            <label for=""><?php echo esc_html__('Font family', 'faq-focus-for-woo');?></label>
+            <?php
+            echo '<select id="qaffw-estimass-fontfamilly" name="qaffw-estimass-toptitle-fontfamilly">';
+              foreach($all_fonts as $font_slug => $font_title){
+                echo '<option value="'.esc_attr($font_slug).'" '.selected(esc_attr($qaffw_estimass_toptitle_fontfamilly_value),esc_attr($font_slug)).'>'.esc_html__($font_title,'faq-focus-for-woo').'</option>';
+              }
+            echo '</select>';
+            ?>
+          </div>
+          </div>
+
         </div>
         <div class="control_row">
         <label for="" class="qaffw_style_title"><?php echo esc_html__('Headline BG', 'faq-focus-for-woo');?></label>

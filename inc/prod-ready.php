@@ -101,6 +101,11 @@ class ClassProdQAFFW {
         $qaffw_estimdate_fontsize_value = get_option( 'qaffw-estimdate-fontsize');
         $qaffw_estimdate_fontweight_value = get_option( 'qaffw-estimdate-fontweight');
         $qaffw_estimdate_fontfamilly_value = get_option( 'qaffw-estimdate-fontfamilly');
+        // *** top title
+        $qaffw_estimass_toptitle_color_value = get_option( 'qaffw-estimass-toptitle-color');
+        $qaffw_estimass_toptitle_fontsize_value = get_option( 'qaffw-estimass-toptitle-fontsize');
+        $qaffw_estimass_toptitle_fontweight_value = get_option( 'qaffw-estimass-toptitle-fontweight');
+        $qaffw_estimass_toptitle_fontfamilly_value = get_option( 'qaffw-estimass-toptitle-fontfamilly');
         // *** estimass
         $qaffw_estimass_color_value = get_option( 'qaffw-estimass-color');
         $qaffw_estimass_fontsize_value = get_option( 'qaffw-estimass-fontsize');
@@ -126,6 +131,12 @@ class ClassProdQAFFW {
             font-size:{$qaffw_estimdate_fontsize_value} !important;
             font-weight:{$qaffw_estimdate_fontweight_value} !important;
             font-family:{$qaffw_estimdate_fontfamilly_value} !important;
+        }
+        .qaffw-Accordion-toptitle{
+            color:{$qaffw_estimass_toptitle_color_value} !important;
+            font-size:{$qaffw_estimass_toptitle_fontsize_value} !important;
+            font-weight:{$qaffw_estimass_toptitle_fontweight_value} !important;
+            font-family:{$qaffw_estimass_toptitle_fontfamilly_value} !important;
         }
         .qaffw-panel-title .qaffw-collapsed{
             color:{$qaffw_estimass_color_value} !important;
@@ -154,15 +165,6 @@ class ClassProdQAFFW {
             array_push($links, $qaffw_settings_link);
         }
         return $links;
-    }
-
-    public function qaffw_product_data_tabs($tabs){
-        $tabs['custom_tab'] = array(
-            'label'    => __('Product estimated date', 'faq-focus-for-woo'),
-            'target'   => 'qaffw_product_estimated_date_tab',
-            'priority' => 100,
-        );
-        return $tabs;
     }
 
     public function qaffw_add_to_cart_button(){
@@ -289,9 +291,6 @@ class ClassProdQAFFW {
         }elseif(get_option( 'qaffw-checkout-page-check')=='after_single_product'){
             add_action('woocommerce_after_single_product', [$this, 'qaffw_after_single_product']); // For after_single_product
         }
-        // For product edit page
-        add_filter('woocommerce_product_data_tabs', [$this, 'qaffw_product_data_tabs']);
-        // Plugins
         // add_shortcode('bwd_product_faq', [$this,'custom_html_shortcode']);
 		add_filter( 'plugin_action_links', [$this,'qaffw_settings_plugin_action_link'], 10, 2 );
 		add_filter( 'whitelist_options', [$this,'qaffw_plugin_settings_to_whitelist'] );

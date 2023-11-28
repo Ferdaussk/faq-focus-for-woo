@@ -37,6 +37,35 @@ add_settings_field(
   'qaffw-plugin-switch-section'
 );
 // controls
+// *** top title
+add_settings_field(
+  'qaffw-estimass-toptitle-color',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-toptitle-fontsize',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-toptitle-fontweight',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
+  'qaffw-estimass-toptitle-fontfamilly',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
 // *** estimass
 add_settings_field(
   'qaffw-estimass-color',
@@ -192,6 +221,23 @@ register_setting(
   'qaffw-checkout-page-check' 
 );
 // controls
+// *** top title
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-toptitle-color'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-toptitle-fontsize'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-toptitle-fontweight'
+);
+register_setting(
+  'qaffw-plugin-settings',
+  'qaffw-estimass-toptitle-fontfamilly'
+);
 // *** estimass
 register_setting(
   'qaffw-plugin-settings',

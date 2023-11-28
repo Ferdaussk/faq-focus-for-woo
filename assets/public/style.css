@@ -2717,3 +2717,13 @@
       bottom: 0px;
   }
 }
+
+/* top title */
+h2.qaffw-Accordion-toptitle {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
+  color: black;
+  padding: 0;
+  margin: 0;
+}

@@ -5,6 +5,7 @@ function qaffw_sk_single(){
     $product_id = $product->get_id();
     $custom_data = get_post_meta($product_id, '_custom_data', true);
     $qaffw_html = '';
+    $qaffw_html .= '<h2 class="qaffw-Accordion-toptitle">'.get_option( 'wpesd-top-title-check', 'FAQ Focus for Woo' ).'</h2>';
     $qaffw_html .= '<div class="qaffw-Accordion-'.get_option( 'qaffw-estimass-presets', 1 ).'">';
         if ($custom_data) {
             foreach ($custom_data as $data) {

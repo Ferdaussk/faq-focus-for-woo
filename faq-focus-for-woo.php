@@ -12,9 +12,9 @@
  * @package           FAQ Focus for Woo
  *
  * @wordpress-plugin
- * Plugin Name:       AAAAA1 FAQ Focus for Woo
+ * Plugin Name:       FAQ Focus for Woo
  * Plugin URI:        https://bestwpdeveloper.com/faq-focus-for-woo/
- * Description:       Add real-time estimated shipping dates to your WooCommerce store, keeping your customers informed and satisfied with accurate delivery predictions.
+ * Description:       Optimize customer support on product pages with FAQ Focus – the WooCommerce plugin designed for effortless Frequently Asked Questions management.
  * Version:           1.0
  * Author:            Best WP Developer
  * Author URI:        https://bestwpdeveloper.com
