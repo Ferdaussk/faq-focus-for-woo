@@ -15,6 +15,13 @@ add_settings_field(
   'qaffw-plugin-switch-section'
 );
 add_settings_field(
+  'wpesd-top-title-check',
+  '',
+  'qaffw_plugin_function_for_datas_callback',
+  'qaffw-plugin-main-menu',
+  'qaffw-plugin-switch-section'
+);
+add_settings_field(
   'wpesd-expand-title-check',
   '',
   'qaffw_plugin_function_for_datas_callback',
@@ -206,6 +213,10 @@ register_setting(
 register_setting(
   'qaffw-plugin-settings', 
   'qaffw-estimass-presets' 
+);
+register_setting(
+  'qaffw-plugin-settings', 
+  'wpesd-top-title-check' 
 );
 register_setting(
   'qaffw-plugin-settings', 

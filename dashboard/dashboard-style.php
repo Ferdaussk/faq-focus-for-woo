@@ -22,8 +22,8 @@ $qaffw_estimass_bgcolorEX_value = get_option( 'qaffw-estimass-bgcolorEX' );
 $qaffw_estimass_box_shadowEX_value = get_option( 'qaffw-reason-box-shadowEX' );
 $qaffw_estimass_radiusEX_value = get_option( 'qaffw-reason-border-radiusEX' );
 // *** estimdate
-$qaffw_estimass_presets_value = get_option( 'qaffw-estimass-presets', 1 );
-$wpesd_top_title_check_check = get_option( 'wpesd-top-title-check', 'FAQ Focus for Woo' );
+$qaffw_estimass_presets_value = get_option( 'qaffw-estimass-presets', 2 );
+$wpesd_top_title_check_check = get_option( 'wpesd-top-title-check');
 $wpesd_expand_title_check_check = get_option( 'wpesd-expand-title-check', 'on' );
 // *** reason
 $qaffw_reason_color_value = get_option( 'qaffw-reason-color' );
@@ -60,8 +60,8 @@ $all_fonts = [
 ];
 // Presets
 $ss_all_presets = [
-  '1' => esc_html__('Style1', 'faq-focus-for-woo'),
-  '2' => esc_html__('Style2', 'faq-focus-for-woo'),
+  '2' => esc_html__('Style1', 'faq-focus-for-woo'),
+  '1' => esc_html__('Style2', 'faq-focus-for-woo'),
   '3' => esc_html__('Style3', 'faq-focus-for-woo'),
   '4' => esc_html__('Style4', 'faq-focus-for-woo'),
   '5' => esc_html__('Style5', 'faq-focus-for-woo'),

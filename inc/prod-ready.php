@@ -200,7 +200,7 @@ class ClassProdQAFFW {
     }
     
     public function render_custom_meta_box($post) {
-        $custom_data = get_post_meta($post->ID, '_custom_data', true);
+        $custom_data = get_post_meta($post->ID, '_qaffw_custom_data', true);
         $qaffw_admin_html = '';
         $qaffw_admin_html .= '<div class="form-repeater" id="form-repeater-container">';
             if ($custom_data) {
@@ -239,7 +239,7 @@ class ClassProdQAFFW {
                 }
             }
             // Save data in post meta
-            update_post_meta($post_id, '_custom_data', $custom_data);
+            update_post_meta($post_id, '_qaffw_custom_data', $custom_data);
         }
     }
 
