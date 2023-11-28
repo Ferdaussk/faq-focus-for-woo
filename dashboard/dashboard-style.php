@@ -1,7 +1,7 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit;
 // Taxos label check
-$qaffw_checkout_page_check = get_option( 'qaffw-checkout-page-check', 'on' );
+$qaffw_checkout_page_check = get_option( 'qaffw-checkout-page-check', 'before_add_to_cart_button' );
 // Label controls
 // *** estimass
 $qaffw_estimass_color_value = get_option( 'qaffw-estimass-color', 'black' );
@@ -17,9 +17,8 @@ $qaffw_estimass_bgcolorEX_value = get_option( 'qaffw-estimass-bgcolorEX' );
 $qaffw_estimass_box_shadowEX_value = get_option( 'qaffw-reason-box-shadowEX' );
 $qaffw_estimass_radiusEX_value = get_option( 'qaffw-reason-border-radiusEX' );
 // *** estimdate
-$qaffw_product_shipted_value = get_option( 'qaffw-product-shipted', 'This product will be shipped on ');
 $qaffw_estimass_presets_value = get_option( 'qaffw-estimass-presets', 1 );
-$qaffw_notice_position_value = get_option( 'qaffw-notice-position', 'top' );
+$wpesd_expand_title_check_check = get_option( 'wpesd-expand-title-check', 'on' );
 // *** reason
 $qaffw_reason_color_value = get_option( 'qaffw-reason-color' );
 $qaffw_reason_fontsize_value = get_option( 'qaffw-reason-fontsize');
@@ -78,6 +77,14 @@ $ss_all_presets = [
   '29' => esc_html__('Style21', 'faq-focus-for-woo'),
   '30' => esc_html__('Style22', 'faq-focus-for-woo'),
   '31' => esc_html__('Style23', 'faq-focus-for-woo'),
+  '7' => esc_html__('Style24', 'faq-focus-for-woo'),
+  '8' => esc_html__('Style25', 'faq-focus-for-woo'),
+  '9' => esc_html__('Style26', 'faq-focus-for-woo'),
+  '10' => esc_html__('Style27', 'faq-focus-for-woo'),
+  '11' => esc_html__('Style28', 'faq-focus-for-woo'),
+  '12' => esc_html__('Style29', 'faq-focus-for-woo'),
+  '13' => esc_html__('Style30', 'faq-focus-for-woo'),
+  '14' => esc_html__('Style31', 'faq-focus-for-woo'),
 ];
 ?>
 <div class="admin-panel">
@@ -106,26 +113,37 @@ $ss_all_presets = [
           echo '</select>';
           ?>
         </div>
-        <div class="select-container">
-          <label for=""><?php echo esc_html__('Reason notice position', 'faq-focus-for-woo'); ?></label>
-          <select name="qaffw-notice-position">
-            <option value="top" <?php selected($qaffw_notice_position_value, 'top'); ?>><?php echo esc_html__('Top', 'faq-focus-for-woo'); ?></option>
-            <option value="bottom" <?php selected($qaffw_notice_position_value, 'bottom'); ?>><?php echo esc_html__('Bottom', 'faq-focus-for-woo'); ?></option>
-          </select>
+        <div class="list-container wpesd_cmmn_chacthak">
+          <input type="checkbox" name="wpesd-expand-title-check" value="on" <?php echo checked( $wpesd_expand_title_check_check, 'on', false ); ?>>
+          <label class="checker-switch"><?php _e('Show expand title', 'wproduct-estimated-shipping-date'); ?></label>
         </div>
-        <div class="select-container emessage-container">
-          <label><?php echo esc_html__('Estimated Message:', 'faq-focus-for-woo'); ?></label>
-          <?php echo '<input type="text" name="qaffw-product-shipted" id="qaffw-product-shipted" value="'.$qaffw_product_shipted_value.'" title="Text"  placeholder="This product will be shipped on ">';?>
-        </div>
-        <div class="list-container qaffw_cmmn_chacthak">
-          <input type="checkbox" name="qaffw-checkout-page-check" value="on" <?php echo checked( $qaffw_checkout_page_check, 'on', false ); ?>>
-          <label class="checker-switch"><?php echo esc_html__('Show in single page as default. ', 'faq-focus-for-woo'); ?></label>
-        </div>
-        <div class="list-container qaffw_cmmn_chacthak">
-          <h2 class="checker-switch"><?php echo esc_html__('Use shortcode on single page (Don\'t use multiple time): ', 'faq-focus-for-woo'); ?></h2>
-          <span id="myHeading"><?php echo esc_html__('[bwd_product_faq]', 'faq-focus-for-woo'); ?></span>
-          <button class="list-btn" onclick="copyText()"><?php echo esc_html__('Copy', 'faq-focus-for-woo'); ?></button></br>
-          <span class="spansk-switch"><?php echo esc_html__('Note: Must uncheck default before using shortcode.', 'faq-focus-for-woo'); ?></span>
+        <div class="choose-page"><?php _e('Single page position:', 'faq-focus-for-woo'); ?></div>
+        <div class="list-container">
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="before_single_product_summary"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'before_single_product_summary'); ?>>
+            <label ><?php _e('Before single product summary', 'faq-focus-for-woo'); ?></label>
+          </div>
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="before_add_to_cart_button"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'before_add_to_cart_button'); ?>>
+            <label ><?php _e('Before add to cart button', 'faq-focus-for-woo'); ?></label>
+          </div>
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="after_add_to_cart_button"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_add_to_cart_button'); ?>>
+            <label ><?php _e('After add to cart button', 'faq-focus-for-woo'); ?></label>
+          </div>
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="after_single_product"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_single_product'); ?>>
+            <label ><?php _e('After single product', 'faq-focus-for-woo'); ?></label>
+          </div>
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="after_single_product_summary"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_single_product_summary'); ?>>
+            <label ><?php _e('After single product summary', 'faq-focus-for-woo'); ?></label>
+          </div>
         </div>
       </div>
       <div class="clmn-wrap secound-clm">

@@ -18,7 +18,8 @@ margin-bottom: 20px;
 }
 
 .header h1 {
-font-size: 30px;
+font-size: 22px;
+font-family: cursive;
 margin: 0;
 height: 22px;
 background: linear-gradient(to right, #034494, #d20045, #ff9c4b);
@@ -28,8 +29,8 @@ background-clip: text;
 }
 .wp-core-ui .button-primary {
 padding: 8px 12px;
-background-color: #64a326;
-color: #fff;
+background-color: #13db91;
+color: #18069f;
 border: none;
 cursor: pointer;
 font-weight: 700;
@@ -37,8 +38,8 @@ font-size: 15px;
 }
 .wp-core-ui .button-primary:hover, .wp-core-ui .button-primary:focus {
 padding: 8px 12px;
-background-color: #5c9623;
-color: #fff;
+background-color: #13db91;
+color: #18069f;
 border: none;
 cursor: pointer;
 font-weight: 700;
@@ -60,9 +61,7 @@ width: 50%;
 .first-clm {
 width: 30%;
 }
-/* .secound-clm {
-width: 70%;
-} */
+
 .clmn-wrap {
 border: 1px solid #ccc;
 padding: 20px;
@@ -146,7 +145,9 @@ border-radius: 4px;
 .list-container.qaffw_cmmn_chacthak {
   padding: 15px 0px;
 }
-
+div#wpcontent {
+  background: #c9eff32e;
+}
 
 /* For the secound collumn */
 /* Apply styles to the .secound-clm container */
@@ -157,7 +158,6 @@ border-radius: 4px;
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -246,9 +246,6 @@ border-radius: 4px;
 }
 .secound-clm .control_row{
   text-align: center;
-}
-span.spansk-switch {
-  color: red;
 }
 /* For shortcode */
 span#myHeading {

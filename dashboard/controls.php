@@ -15,14 +15,7 @@ add_settings_field(
   'qaffw-plugin-switch-section'
 );
 add_settings_field(
-  'qaffw-notice-position',
-  '',
-  'qaffw_plugin_function_for_datas_callback',
-  'qaffw-plugin-main-menu',
-  'qaffw-plugin-switch-section'
-);
-add_settings_field(
-  'qaffw-product-shipted',
+  'wpesd-expand-title-check',
   '',
   'qaffw_plugin_function_for_datas_callback',
   'qaffw-plugin-main-menu',
@@ -187,11 +180,7 @@ register_setting(
 );
 register_setting(
   'qaffw-plugin-settings', 
-  'qaffw-notice-position' 
-);
-register_setting(
-  'qaffw-plugin-settings', 
-  'qaffw-product-shipted' 
+  'wpesd-expand-title-check' 
 );
 register_setting(
   'qaffw-plugin-settings', 

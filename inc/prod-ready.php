@@ -61,8 +61,6 @@ class ClassProdQAFFW {
 
     public function qaffw_plugin_settings_to_whitelist( $options ) {
       $options['qaffw-plugin-settings'] = array(
-        'qaffw-notice-position',
-        'qaffw-product-shipted',
         'qaffw-checkout-page-check',
         // *** reason
         'qaffw-reason-color',
@@ -167,71 +165,26 @@ class ClassProdQAFFW {
         return $tabs;
     }
 
-    public function qaffw_psingle_page(){
-        global $product;
-        $product_id = $product->get_id();
-        $custom_data = get_post_meta($product_id, '_custom_data', true);
-        if(get_option( 'qaffw-checkout-page-check', 'on' )=='on'){
-            ?>
-            <div class="qaffw-Accordion-<?php echo get_option( 'qaffw-estimass-presets', 1 ); ?>">
-                <?php
-                if ($custom_data) {
-                    foreach ($custom_data as $data) {
-                        ?>
-                            <div class="qaffw-Accordion-default">
-                                <div class="qaffw-Accordion-heading" id="headingOne">
-                                    <h4 class="qaffw-panel-title">
-                                        <span class="qaffw-collapsed"><?php echo esc_html($data['text1']); ?></span>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne">
-                                    <div class="qaffw-panel-body">
-                                        <div class="qaffw-Accordion-t"><?php echo esc_html($data['text2']); ?></div>
-                                        <p><?php echo nl2br(esc_html($data['textarea'])); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-            <?php
-        }
+    public function qaffw_add_to_cart_button(){
+        echo qaffw_sk_single();
     }
 
-    public function custom_html_shortcode(){
-        global $product;
-        $product_id = $product->get_id();
-        $custom_data = get_post_meta($product_id, '_custom_data', true);
-        // if(!get_option( 'qaffw-checkout-page-check', 'on' )=='on'){
-            ?>
-            <div class="qaffw-Accordion-<?php echo get_option( 'qaffw-estimass-presets', 1 ); ?>">
-                <?php
-                if ($custom_data) {
-                    foreach ($custom_data as $data) {
-                        ?>
-                            <div class="qaffw-Accordion-default">
-                                <div class="qaffw-Accordion-heading" id="headingOne">
-                                    <h4 class="qaffw-panel-title">
-                                        <span class="qaffw-collapsed"><?php echo esc_html($data['text1']); ?></span>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne">
-                                    <div class="qaffw-panel-body">
-                                        <div class="qaffw-Accordion-t"><?php echo esc_html($data['text2']); ?></div>
-                                        <p><?php echo nl2br(esc_html($data['textarea'])); ?></p>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-            <?php
-        // }
+    public function qaffw_after_add_to_cart_button(){
+        echo qaffw_sk_single();
     }
+
+    public function qaffw_after_single_product_summary(){
+        echo qaffw_sk_single();
+    }
+
+    public function qaffw_before_single_product_summary(){
+        echo qaffw_sk_single();
+    }
+
+    public function qaffw_after_single_product(){
+        echo qaffw_sk_single();
+    }
+
 
     public function qaffw_add_custom_postbox() {
         add_meta_box(
@@ -325,7 +278,17 @@ class ClassProdQAFFW {
         add_action('save_post', [$this, 'qaffw_save_custom_postbox_data']);
         add_action('add_meta_boxes', [$this, 'qaffw_add_custom_postbox']);
         // Last Date 
-        add_action('woocommerce_before_add_to_cart_button', [$this, 'qaffw_psingle_page']); // For product single page
+        if(get_option( 'qaffw-checkout-page-check', 'before_add_to_cart_button' )=='before_add_to_cart_button'){
+            add_action('woocommerce_before_add_to_cart_button', [$this, 'qaffw_add_to_cart_button']); // For add_to_cart_button
+        }elseif(get_option( 'qaffw-checkout-page-check' )=='after_add_to_cart_button'){
+            add_action('woocommerce_after_add_to_cart_button', [$this, 'qaffw_after_add_to_cart_button']); // For after_add_to_cart_button
+        }elseif(get_option( 'qaffw-checkout-page-check')=='after_single_product_summary'){
+            add_action('woocommerce_after_single_product_summary', [$this, 'qaffw_after_single_product_summary']); // For after_single_product_summary
+        }elseif(get_option( 'qaffw-checkout-page-check')=='before_single_product_summary'){
+            add_action('woocommerce_before_single_product_summary', [$this, 'qaffw_before_single_product_summary']); // For before_single_product_summary
+        }elseif(get_option( 'qaffw-checkout-page-check')=='after_single_product'){
+            add_action('woocommerce_after_single_product', [$this, 'qaffw_after_single_product']); // For after_single_product
+        }
         // For product edit page
         add_filter('woocommerce_product_data_tabs', [$this, 'qaffw_product_data_tabs']);
         // Plugins

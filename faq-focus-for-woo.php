@@ -58,6 +58,7 @@ final class FinalQAFFWShop{
 
 		// Once we get here, We have passed all validation checks so we can safely include our plugin
 		require_once( 'inc/prod-ready.php' );
+		require_once( 'inc/complex.php' );
 	}
 
 	public function qaffw_admin_notice_minimum_php_version() {
