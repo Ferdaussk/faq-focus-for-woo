@@ -201,28 +201,24 @@ class ClassProdQAFFW {
     
     public function render_custom_meta_box($post) {
         $custom_data = get_post_meta($post->ID, '_custom_data', true);
-        ?>
-        <div class="form-repeater" id="form-repeater-container">
-            <?php
+        $qaffw_admin_html = '';
+        $qaffw_admin_html .= '<div class="form-repeater" id="form-repeater-container">';
             if ($custom_data) {
                 foreach ($custom_data as $data) {
-                    ?>
-                    <div class="qaffw-form-group">
-                        <label class="qaffw-adminlbl qaffw-headline-accdn-lbl" for="text1"><?php echo esc_html__('Headline:', 'faq-focus-for-woo'); ?></label>
-                        <input class="qaffw-headline-accdn" type="text" name="text1[]" value="<?php echo esc_attr($data['text1']); ?>" required>
-                        <label class="qaffw-adminlbl qaffw-title-accdn-lbl" for="text2"><?php echo esc_html__('Title:', 'faq-focus-for-woo'); ?></label>
-                        <input class="qaffw-title-accdn" type="text" name="text2[]" value="<?php echo esc_attr($data['text2']); ?>" required>
-                        <label class="qaffw-adminlbl qaffw-desc-accdn-lbl" for="textarea"><?php echo esc_html__('Description:', 'faq-focus-for-woo'); ?></label>
-                        <textarea name="textarea[]" rows="4" class="qaffw-desc-accdn" required><?php echo esc_textarea($data['textarea']); ?></textarea>
-                    </div>
-                    <?php
+                    $qaffw_admin_html .= '<div class="qaffw-form-group">';
+                        $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-headline-accdn-lbl" for="text1">'.esc_html__('Headline:', 'faq-focus-for-woo').'</label>';
+                        $qaffw_admin_html .= '<input class="qaffw-headline-accdn" type="text" name="text1[]" value="'.esc_attr($data['text1']).'" required>';
+                        $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-title-accdn-lbl" for="text2">'.esc_html__('Title:', 'faq-focus-for-woo').'</label>';
+                        $qaffw_admin_html .= '<input class="qaffw-title-accdn" type="text" name="text2[]" value="'.esc_attr($data['text2']).'" required>';
+                        $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-desc-accdn-lbl" for="textarea">'.esc_html__('Description:', 'faq-focus-for-woo').'</label>';
+                        $qaffw_admin_html .= '<textarea name="textarea[]" rows="4" class="qaffw-desc-accdn" required>'.esc_textarea($data['textarea']).'</textarea>';
+                    $qaffw_admin_html .= '</div>';
                 }
             }
-            ?>
-        </div>
-        <button type="button" class="qaffw-adminbtn qaffw-btn-add" onclick="addForm()"><?php echo esc_html__('Add New', 'faq-focus-for-woo'); ?></button>
-        <button type="button" class="qaffw-adminbtn qaffw-btn-remv" onclick="removeForm()"><?php echo esc_html__('Remove Last', 'faq-focus-for-woo'); ?></button>
-        <?php
+        $qaffw_admin_html .= '</div>';
+        $qaffw_admin_html .= '<button type="button" class="qaffw-adminbtn qaffw-btn-add" onclick="addForm()">'.esc_html__('Add New', 'faq-focus-for-woo').'</button>';
+        $qaffw_admin_html .= '<button type="button" class="qaffw-adminbtn qaffw-btn-remv" onclick="removeForm()">'.esc_html__('Remove Last', 'faq-focus-for-woo').'</button>';
+        echo $qaffw_admin_html;
     }
 
     public function qaffw_save_custom_postbox_data($post_id) {
@@ -246,37 +242,8 @@ class ClassProdQAFFW {
             update_post_meta($post_id, '_custom_data', $custom_data);
         }
     }
-    public function qaffw_enqueue_scripts() {
-        ?>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-            document.addEventListener('click', function(e) {
-                if (e.target && e.target.classList.contains('add-custom-field')) {
-                    var container = e.target.previousElementSibling;
-                    var index = container.querySelectorAll('.custom-field').length;
-
-                    var firstField = container.querySelector('.custom-field:first-of-type');
-                    var newField = firstField.cloneNode(true);
-
-                    newField.querySelectorAll('input[type="text"]').forEach(function(input) {
-                        input.value = '';
-                        input.name = input.name.replace(/\[\d+\]/, '[' + index + ']');
-                    });
-
-                    newField.querySelector('.remove-custom-field').style.display = 'inline-block';
-
-                    container.appendChild(newField);
-                } else if (e.target && e.target.classList.contains('remove-custom-field')) {
-                    e.target.parentNode.remove();
-                }
-            });
-        });
-        </script>
-        <?php
-    }
 
 	public function __construct() {
-        // add_action('admin_footer', [$this, 'qaffw_enqueue_scripts']);
         add_action('save_post', [$this, 'qaffw_save_custom_postbox_data']);
         add_action('add_meta_boxes', [$this, 'qaffw_add_custom_postbox']);
         // Last Date 
@@ -291,7 +258,6 @@ class ClassProdQAFFW {
         }elseif(get_option( 'qaffw-checkout-page-check')=='after_single_product'){
             add_action('woocommerce_after_single_product', [$this, 'qaffw_after_single_product']); // For after_single_product
         }
-        // add_shortcode('bwd_product_faq', [$this,'custom_html_shortcode']);
 		add_filter( 'plugin_action_links', [$this,'qaffw_settings_plugin_action_link'], 10, 2 );
 		add_filter( 'whitelist_options', [$this,'qaffw_plugin_settings_to_whitelist'] );
         add_action('admin_enqueue_scripts', [$this, 'qaffw_all_assets_for_the_admin']);
