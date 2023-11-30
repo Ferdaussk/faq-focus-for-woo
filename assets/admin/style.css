@@ -270,3 +270,9 @@ span#myHeading {
   cursor: pointer;
   margin: 0.5rem 0rem;
 }
+.first-clm select, .secound-clm input, .secound-clm select, #wpesd-top-title-check {
+  border-color: #7ad03a!important;
+  min-height: 38px!important;
+  box-shadow: 0 3px 0px 2px #00000038;
+  border-radius: 5px;
+}

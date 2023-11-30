@@ -18,7 +18,6 @@ class ClassProdQAFFW {
         wp_enqueue_style( 'qaffw-order', plugin_dir_url( __FILE__ ) . '../assets/admin/order.css', null, '1.0', 'all' );
 		if (isset($_GET['page']) && $_GET['page'] === 'get-faq-focus-for-woo') {
             wp_enqueue_script( 'qaffw-wheelcolorpicker', plugin_dir_url( __FILE__ ) . '../assets/admin/colorpicker/jquery.wheelcolorpicker.js', array('jquery'), '1.0', true );
-            wp_enqueue_script( 'qaffw-shortcode', plugin_dir_url( __FILE__ ) . '../assets/admin/script-copy-shortcode.js', array('jquery'), '1.0', true );
             $all_css_js_file = array(
                 'qaffw-style' => array('qaffw_path_define'=>QAFFW_ASFSK_ASSETS_ADMIN_DIR_FILE . '/style.css'),
                 'qaffw-wheelcolorpicker' => array('qaffw_path_define'=>QAFFW_ASFSK_ASSETS_ADMIN_DIR_FILE . '/colorpicker/wheelcolorpicker.css'),
@@ -186,12 +185,24 @@ class ClassProdQAFFW {
     public function qaffw_after_single_product(){
         echo qaffw_sk_single();
     }
+    
+    public function qaffw_single_product_tab($tabs) {
+        $tabs['custom_tab'] = array(
+            'title'    => esc_html__('Woo FAQ Focus', 'faq-focus-for-woo'),
+            'priority' => 50,
+            'callback' => [$this, 'qaffw_custom_tab_content'],
+        );
+        return $tabs;
+    }
 
+    public function qaffw_custom_tab_content(){
+        echo qaffw_sk_single();
+    }
 
     public function qaffw_add_custom_postbox() {
         add_meta_box(
             'custom_meta_box',
-            'FAQ Focus for Woo',
+            esc_html__('FAQ Focus for Woo', 'faq-focus-for-woo'),
             [$this, 'render_custom_meta_box'],
             'product',
             'normal',
@@ -257,6 +268,8 @@ class ClassProdQAFFW {
             add_action('woocommerce_before_single_product_summary', [$this, 'qaffw_before_single_product_summary']); // For before_single_product_summary
         }elseif(get_option( 'qaffw-checkout-page-check')=='after_single_product'){
             add_action('woocommerce_after_single_product', [$this, 'qaffw_after_single_product']); // For after_single_product
+        }elseif(get_option( 'qaffw-checkout-page-check')=='qaffw_product_tab'){
+            add_filter('woocommerce_product_tabs', [$this, 'qaffw_single_product_tab']); // For single product tab
         }
 		add_filter( 'plugin_action_links', [$this,'qaffw_settings_plugin_action_link'], 10, 2 );
 		add_filter( 'whitelist_options', [$this,'qaffw_plugin_settings_to_whitelist'] );

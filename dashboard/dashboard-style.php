@@ -120,39 +120,44 @@ $ss_all_presets = [
           ?>
         </div>
         <div class="list-container wpesd_cmmn_chacthak">
-          <label class="qape_title"><?php _e('Top title', 'wproduct-estimated-shipping-date'); ?></label>
+          <label class="qape_title"><?php echo esc_html__('Top title', 'wproduct-estimated-shipping-date'); ?></label>
           <?php echo '<input type="text" name="wpesd-top-title-check" id="wpesd-top-title-check" value="'.$wpesd_top_title_check_check.'" title="Text"  placeholder="FAQ Focus for Woo">';?>
         </div>
         <div class="list-container wpesd_cmmn_chacthak">
           <input type="checkbox" name="wpesd-expand-title-check" value="on" <?php echo checked( $wpesd_expand_title_check_check, 'on', false ); ?>>
-          <label class="checker-switch"><?php _e('Show expand title', 'wproduct-estimated-shipping-date'); ?></label>
+          <label class="checker-switch"><?php echo esc_html__('Show expand title', 'wproduct-estimated-shipping-date'); ?></label>
         </div>
-        <div class="choose-page"><?php _e('Single page position:', 'faq-focus-for-woo'); ?></div>
+        <div class="choose-page"><?php echo esc_html__('Single page position:', 'faq-focus-for-woo'); ?></div>
         <div class="list-container">
           <div class="list-item">
             <input type="radio" name="qaffw-checkout-page-check" value="before_single_product_summary"
             <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'before_single_product_summary'); ?>>
-            <label ><?php _e('Before single product summary', 'faq-focus-for-woo'); ?></label>
+            <label ><?php echo esc_html__('Before single product summary', 'faq-focus-for-woo'); ?></label>
           </div>
           <div class="list-item">
             <input type="radio" name="qaffw-checkout-page-check" value="before_add_to_cart_button"
             <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'before_add_to_cart_button'); ?>>
-            <label ><?php _e('Before add to cart button', 'faq-focus-for-woo'); ?></label>
+            <label ><?php echo esc_html__('Before add to cart button', 'faq-focus-for-woo'); ?></label>
           </div>
           <div class="list-item">
             <input type="radio" name="qaffw-checkout-page-check" value="after_add_to_cart_button"
             <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_add_to_cart_button'); ?>>
-            <label ><?php _e('After add to cart button', 'faq-focus-for-woo'); ?></label>
+            <label ><?php echo esc_html__('After add to cart button', 'faq-focus-for-woo'); ?></label>
           </div>
           <div class="list-item">
             <input type="radio" name="qaffw-checkout-page-check" value="after_single_product"
             <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_single_product'); ?>>
-            <label ><?php _e('After single product', 'faq-focus-for-woo'); ?></label>
+            <label ><?php echo esc_html__('After single product', 'faq-focus-for-woo'); ?></label>
           </div>
           <div class="list-item">
             <input type="radio" name="qaffw-checkout-page-check" value="after_single_product_summary"
             <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'after_single_product_summary'); ?>>
-            <label ><?php _e('After single product summary', 'faq-focus-for-woo'); ?></label>
+            <label ><?php echo esc_html__('After single product summary', 'faq-focus-for-woo'); ?></label>
+          </div>
+          <div class="list-item">
+            <input type="radio" name="qaffw-checkout-page-check" value="qaffw_product_tab"
+            <?php checked(get_option('qaffw-checkout-page-check', 'off'), 'qaffw_product_tab'); ?>>
+            <label ><?php echo esc_html__('With Tab', 'faq-focus-for-woo'); ?></label>
           </div>
         </div>
       </div>

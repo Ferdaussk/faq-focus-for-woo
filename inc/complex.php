@@ -5,8 +5,8 @@ function qaffw_sk_single(){
     $product_id = $product->get_id();
     $custom_data = get_post_meta($product_id, '_qaffw_custom_data', true);
     $qaffw_html = '';
-    $hlksdffg = get_option( 'wpesd-top-title-check')==true?get_option( 'wpesd-top-title-check'):'';
-    $qaffw_html .= $custom_data==true?'<h2 class="qaffw-Accordion-toptitle">'.$hlksdffg.'</h2>':'';
+    $qaffw_top_ttl = get_option( 'wpesd-top-title-check')==true?get_option( 'wpesd-top-title-check'):'';
+    $qaffw_html .= $custom_data==true?'<h2 class="qaffw-Accordion-toptitle">'.$qaffw_top_ttl.'</h2>':'';
     $qaffw_html .= '<div class="qaffw-Accordion-'.get_option( 'qaffw-estimass-presets', 2 ).'">';
         if ($custom_data) {
             foreach ($custom_data as $data) {
