@@ -6,7 +6,8 @@ function qaffw_sk_single(){
     $custom_data = get_post_meta($product_id, '_qaffw_custom_data', true);
     $qaffw_html = '';
     $qaffw_top_ttl = get_option( 'wpesd-top-title-check')==true?get_option( 'wpesd-top-title-check'):'';
-    $qaffw_html .= $custom_data==true?'<h2 class="qaffw-Accordion-toptitle">'.$qaffw_top_ttl.'</h2>':'';
+    $lkjl = (get_option( 'qaffw-checkout-page-check')=='qaffw_product_tab')?'':$qaffw_top_ttl;
+    $qaffw_html .= $custom_data==true?'<h2 class="qaffw-Accordion-toptitle">'.$lkjl.'</h2>':'';
     $qaffw_html .= '<div class="qaffw-Accordion-'.get_option( 'qaffw-estimass-presets', 2 ).'">';
         if ($custom_data) {
             foreach ($custom_data as $data) {

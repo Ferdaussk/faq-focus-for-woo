@@ -188,7 +188,7 @@ class ClassProdQAFFW {
     
     public function qaffw_single_product_tab($tabs) {
         $tabs['custom_tab'] = array(
-            'title'    => esc_html__('Woo FAQ Focus', 'faq-focus-for-woo'),
+            'title'    => get_option( 'wpesd-top-title-check')==true?get_option( 'wpesd-top-title-check'):esc_html__('Woo FAQ Focus', 'faq-focus-for-woo'),
             'priority' => 50,
             'callback' => [$this, 'qaffw_custom_tab_content'],
         );
