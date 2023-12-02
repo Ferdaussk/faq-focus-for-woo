@@ -37,8 +37,8 @@ class ClassProdQAFFW {
 	public function qaffw_admin_menu_test(){
 		if(current_user_can('manage_options')){
 			add_menu_page(
-				esc_html__('FAQ Focus for Woo', 'bwd-elementor-addons'),
-				esc_html__('FAQ Focus for Woo', 'bwd-elementor-addons'),
+				esc_html__('FAQ Focus for Woo', 'faq-focus-for-woo'),
+				esc_html__('FAQ Focus for Woo', 'faq-focus-for-woo'),
 				'manage_options',
 				'get-faq-focus-for-woo',
 				array($this, 'qaffw_plugin_submenu_about_plugin_page'),
