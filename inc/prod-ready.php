@@ -36,14 +36,14 @@ class ClassProdQAFFW {
 
 	public function qaffw_admin_menu_test(){
 		if(current_user_can('manage_options')){
-			add_submenu_page(
-				'woocommerce',
-				'FAQ Focus for Woo',
-				'FAQ Focus for Woo',
+			add_menu_page(
+				esc_html__('FAQ Focus for Woo', 'bwd-elementor-addons'),
+				esc_html__('FAQ Focus for Woo', 'bwd-elementor-addons'),
 				'manage_options',
 				'get-faq-focus-for-woo',
 				array($this, 'qaffw_plugin_submenu_about_plugin_page'),
-                12
+				'dashicons-schedule',
+				56
 			);
 		}
     add_action('admin_init', array($this, 'qaffw_admin_controls'));
