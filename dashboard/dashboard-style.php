@@ -24,7 +24,6 @@ $qaffw_estimass_radiusEX_value = get_option( 'qaffw-reason-border-radiusEX' );
 // *** estimdate
 $qaffw_estimass_presets_value = get_option( 'qaffw-estimass-presets', 2 );
 $wpesd_top_title_check_check = get_option( 'wpesd-top-title-check');
-$wpesd_expand_title_check_check = get_option( 'wpesd-expand-title-check', 'on' );
 // *** reason
 $qaffw_reason_color_value = get_option( 'qaffw-reason-color' );
 $qaffw_reason_fontsize_value = get_option( 'qaffw-reason-fontsize');
@@ -122,10 +121,6 @@ $ss_all_presets = [
         <div class="list-container wpesd_cmmn_chacthak">
           <label class="qape_title"><?php echo esc_html__('Top title', 'wproduct-estimated-shipping-date'); ?></label>
           <?php echo '<input type="text" name="wpesd-top-title-check" id="wpesd-top-title-check" value="'.$wpesd_top_title_check_check.'" title="Text"  placeholder="FAQ Focus for Woo">';?>
-        </div>
-        <div class="list-container wpesd_cmmn_chacthak">
-          <input type="checkbox" name="wpesd-expand-title-check" value="on" <?php echo checked( $wpesd_expand_title_check_check, 'on', false ); ?>>
-          <label class="checker-switch"><?php echo esc_html__('Show expand title', 'wproduct-estimated-shipping-date'); ?></label>
         </div>
         <div class="choose-page"><?php echo esc_html__('Single page position:', 'faq-focus-for-woo'); ?></div>
         <div class="list-container">

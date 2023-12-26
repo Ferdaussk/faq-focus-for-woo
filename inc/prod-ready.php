@@ -220,7 +220,7 @@ class ClassProdQAFFW {
                         $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-headline-accdn-lbl" for="text1">'.esc_html__('Headline:', 'faq-focus-for-woo').'</label>';
                         $qaffw_admin_html .= '<input class="qaffw-headline-accdn" type="text" name="text1[]" value="'.esc_attr($data['text1']).'" required>';
                         $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-title-accdn-lbl" for="text2">'.esc_html__('Title:', 'faq-focus-for-woo').'</label>';
-                        $qaffw_admin_html .= '<input class="qaffw-title-accdn" type="text" name="text2[]" value="'.esc_attr($data['text2']).'" required>';
+                        $qaffw_admin_html .= '<input class="qaffw-title-accdn" type="text" name="text2[]" value="'.esc_attr($data['text2']).'">';
                         $qaffw_admin_html .= '<label class="qaffw-adminlbl qaffw-desc-accdn-lbl" for="textarea">'.esc_html__('Description:', 'faq-focus-for-woo').'</label>';
                         $qaffw_admin_html .= '<textarea name="textarea[]" rows="4" class="qaffw-desc-accdn" required>'.esc_textarea($data['textarea']).'</textarea>';
                     $qaffw_admin_html .= '</div>';
@@ -233,7 +233,7 @@ class ClassProdQAFFW {
     }
 
     public function qaffw_save_custom_postbox_data($post_id) {
-        if (isset($_POST['text1']) && isset($_POST['text2']) && isset($_POST['textarea'])) {
+        if (isset($_POST['text1']) || isset($_POST['text2']) && isset($_POST['textarea'])) {
             $custom_data = array();
             // Sanitize and save form data
             for ($i = 0; $i < count($_POST['text1']); $i++) {
@@ -241,7 +241,7 @@ class ClassProdQAFFW {
                 $text2 = sanitize_text_field($_POST['text2'][$i]);
                 $textarea = sanitize_textarea_field($_POST['textarea'][$i]);
     
-                if ($text1 && $text2 && $textarea) {
+                if ($text1 || $text2 && $textarea) {
                     $custom_data[] = array(
                         'text1' => $text1,
                         'text2' => $text2,

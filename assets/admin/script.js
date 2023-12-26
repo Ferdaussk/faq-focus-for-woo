@@ -5,21 +5,21 @@ function addForm() {
     formGroup.className = 'qaffw-form-group';
 
     var text1Label = document.createElement('label');
-    text1Label.textContent = 'Text 1:';
+    text1Label.textContent = 'Headline:';
     var text1Input = document.createElement('input');
     text1Input.type = 'text';
     text1Input.name = 'text1[]';
     text1Input.required = true;
 
     var text2Label = document.createElement('label');
-    text2Label.textContent = 'Text 2:';
+    text2Label.textContent = 'Title:';
     var text2Input = document.createElement('input');
     text2Input.type = 'text';
     text2Input.name = 'text2[]';
-    text2Input.required = true;
+    // text2Input.required = false;
 
     var textareaLabel = document.createElement('label');
-    textareaLabel.textContent = 'Textarea:';
+    textareaLabel.textContent = 'Description:';
     var textareaInput = document.createElement('textarea');
     textareaInput.name = 'textarea[]';
     textareaInput.rows = '4';

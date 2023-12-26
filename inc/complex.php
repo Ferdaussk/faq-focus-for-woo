@@ -19,7 +19,7 @@ function qaffw_sk_single(){
                     $qaffw_html .= '</div>';
                     $qaffw_html .= '<div id="collapseOne">';
                         $qaffw_html .= '<div class="qaffw-panel-body">';
-                            $qaffw_html .= (get_option( 'wpesd-expand-title-check', 'on' )=='on')?'<div class="qaffw-Accordion-t">'.esc_html($data['text2']).'</div>':'';
+                            $qaffw_html .= (!empty($data['text2']))?'<div class="qaffw-Accordion-t">'.esc_html($data['text2']).'</div>':'';
                             $qaffw_html .= '<p>'.nl2br(esc_html($data['textarea'])).'</p>';
                         $qaffw_html .= '</div>';
                     $qaffw_html .= '</div>';
